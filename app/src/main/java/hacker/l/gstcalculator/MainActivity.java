@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -76,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     incheck.setChecked(false);
+                    CalFuction();
                 }
             }
         });
@@ -84,7 +87,24 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     exCheck.setChecked(false);
+                    CalFuction();
                 }
+            }
+        });
+        edt_price.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                CalFuction();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
     }
@@ -115,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
         double Total = Double.parseDouble(amount) + totalGst;
         total.setText(decimalFormat.format(Total));
         gstValue.setText(decimalFormat.format(totalGst));
-        disValue.setText("Discnt."+decimalFormat.format(discountValue));
+        disValue.setText("Discnt-" + decimalFormat.format(discountValue));
     }
 
     private void InclusiveGst() {
@@ -127,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         //double totalPrice = price + gst;
         total.setText(decimalFormat.format(price));
         gstValue.setText(decimalFormat.format(gst));
-        disValue.setText("Disnt."+decimalFormat.format(discountValue));
+        disValue.setText("Discnt-" + decimalFormat.format(discountValue));
 
     }
 
@@ -248,6 +268,7 @@ public class MainActivity extends AppCompatActivity {
                 ((TextView) view).setTextColor(Color.parseColor("#000000"));
 
                 itemvalue = position;
+                CalFuction();
             }
 
             @Override
@@ -373,6 +394,7 @@ public class MainActivity extends AppCompatActivity {
                 ((TextView) view).setTextColor(Color.parseColor("#000000"));
 
                 itemDisvalue = position;
+                CalFuction();
             }
 
             @Override
