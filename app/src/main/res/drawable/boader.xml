@@ -8,11 +8,11 @@
         android:centerColor="@color/white"
         android:startColor="#138808" />
 
-    <corners
-        android:bottomLeftRadius="0dp"
-        android:bottomRightRadius="100dp"
-        android:topLeftRadius="100dp"
-        android:topRightRadius="0dp" />
+    <!--<corners-->
+        <!--android:bottomLeftRadius="0dp"-->
+        <!--android:bottomRightRadius="100dp"-->
+        <!--android:topLeftRadius="100dp"-->
+        <!--android:topRightRadius="0dp" />-->
 
     <stroke
         android:width="2px"

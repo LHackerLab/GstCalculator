@@ -131,10 +131,10 @@ public class MainActivity extends AppCompatActivity {
         String amount = edt_price.getText().toString();
         double price = Double.parseDouble(amount);
         double discountValue = (price * (itemDisvalue / 100));
-        double totalGst = (price * itemvalue) / 100;
-        double Total = Double.parseDouble(amount) + totalGst;
-        total.setText(decimalFormat.format(Total));
-        gstValue.setText(decimalFormat.format(totalGst));
+        double gst = price * itemvalue / (100 + itemvalue);
+        //double totalPrice = price + gst;
+        total.setText(decimalFormat.format(price));
+        gstValue.setText(decimalFormat.format(gst));
         disValue.setText("Discnt-" + decimalFormat.format(discountValue));
     }
 
@@ -143,11 +143,13 @@ public class MainActivity extends AppCompatActivity {
         String amount = edt_price.getText().toString();
         double price = Double.parseDouble(amount);
         double discountValue = (price * (itemDisvalue / 100));
-        double gst = price * itemvalue / (100 + itemvalue);
-        //double totalPrice = price + gst;
-        total.setText(decimalFormat.format(price));
-        gstValue.setText(decimalFormat.format(gst));
+        double totalGst = (price * itemvalue) / 100;
+        double Total = Double.parseDouble(amount) + totalGst;
+        total.setText(decimalFormat.format(Total));
+        gstValue.setText(decimalFormat.format(totalGst));
         disValue.setText("Discnt-" + decimalFormat.format(discountValue));
+
+
 
     }
 
